@@ -1,0 +1,78 @@
+#:import threading threading
+
+<Button>
+    font_size:30
+
+BoxLayout:
+    orientation:"vertical"
+
+    BoxLayout:
+        orientation:"horizontal"
+        size_hint:(1,0.2)
+
+        Label:
+            id:tt
+            text:"60"
+            #pos_hint:{'center_x':0.5}
+
+        Button:
+            id:start
+            text:"Start"
+            #pos_hint:{'center_x':0.5}
+            on_release:
+                threading.Thread(target=app.game, args=(tt,score,b1,b2,b3,b4,b5,b6,b7,b8,b9), daemon=True).start()
+                threading.Thread(target=app.timer, args=(tt,start), daemon=True).start()
+
+        Label:
+            id:score
+            text:"0"
+
+
+    GridLayout:
+        cols:3
+        rows:3
+
+        Button:
+            id:b1
+            text:""
+            on_press:app.check(b1,score)
+
+        Button:
+            id:b2
+            text:""
+            on_press:app.check(b2,score)
+
+        Button:
+            id:b3
+            text:""
+            on_press:app.check(b3,score)
+
+        Button:
+            id:b4
+            text:""
+            on_press:app.check(b4,score)
+
+        Button:
+            id:b5
+            text:""
+            on_press:app.check(b5,score)
+
+        Button:
+            id:b6
+            text:""
+            on_press:app.check(b6,score)
+
+        Button:
+            id:b7
+            text:""
+            on_press:app.check(b7,score)
+
+        Button:
+            id:b8
+            text:""
+            on_press:app.check(b8,score)
+
+        Button:
+            id:b9
+            text:""
+            on_press:app.check(b9,score)
