@@ -1,0 +1,164 @@
+<Button>
+    background_normal:""
+    font_size:20
+    bold:True
+    background_color: (54/255.0,158/255.0,139/255.0,1)
+
+
+<MyLayout>
+
+    field:field
+    dell:dell
+    cl:cl
+    add:add
+    sub:sub
+    mul:mul
+    div:div
+    equals:equals
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 5
+        spacing: 2
+        size: root.width,root.height
+
+        BoxLayout:
+            orientation:"horizontal"
+            size_hint:(1,0.12)
+            spacing: 2
+
+            TextInput:
+                id:field
+                text:"0.0"
+                size_hint: (1,1)
+                pos_hint: {"center_y":0.5}
+                multiline: True
+                halign: "right"
+
+            RButton:
+                id:equals
+                text:"="
+                #background_color: (15/255.0,135/255.0,87/255.0,1)
+                size_hint:(0.33,1)
+                pos_hint: {"center_y":0.5}
+                on_press: root.equality()
+
+        GridLayout:
+            cols: 4
+            rows: 4
+            spacing:2
+
+            Button:
+                text:"1"
+                on_press: root.n1()
+
+            Button:
+                text:"2"
+                on_press: root.n2()
+
+            Button:
+                text:"3"
+                on_press: root.n3()
+
+            Button:
+                id:add
+                text:"+"
+                background_color: (235/255.0,125/255.0,103/255.0,1)
+                on_press: root.addition()
+
+            Button:
+                text:"4"
+                on_press: root.n4()
+
+            Button:
+                text:"5"
+                on_press: root.n5()
+
+            Button:
+                text:"6"
+                on_press: root.n6()
+
+            Button:
+                id:sub
+                text:"-"
+                background_color: (235/255.0,125/255.0,103/255.0,1)
+                on_press: root.subtraction()
+
+            Button:
+                text:"7"
+                on_press: root.n7()
+
+            Button:
+                text:"8"
+                on_press: root.n8()
+
+            Button:
+                text:"9"
+                on_press: root.n9()
+
+            Button:
+                id:mul
+                text:"*"
+                background_color: (235/255.0,125/255.0,103/255.0,1)
+                on_press: root.multiplication()
+
+            Button:
+                id:dell
+                text:"DEL"
+                background_color: (15/255.0,135/255.0,87/255.0,1)
+                italic:True
+                on_press:root.delete()
+
+            Button:
+                text:"0"
+                on_press: root.n0()
+            GridLayout:
+                cols:2
+                rows:2
+                spacing:1
+
+                Button:
+                    id:cl
+                    text:"Clr"
+                    font_size:15
+                    bold:False
+                    background_color: (15/255.0,135/255.0,87/255.0,1)
+                    italic:True
+                    on_press: root.clear()
+
+                Button:
+                    id:sqrt
+                    text:"\u221A"
+                    background_color: (235/255.0,125/255.0,103/255.0,1)
+                    on_press: root.sq()
+
+                Button:
+                    id:decimal
+                    text:"+/-"
+                    font_size:15
+                    background_color: (15/255.0,135/255.0,87/255.0,1)
+                    on_press: root.chg_sng()
+
+                Button:
+                    id:exponent
+                    text:"^"
+                    background_color: (235/255.0,125/255.0,103/255.0,1)
+                    on_press: root.exp()
+
+
+            Button:
+                id:div
+                text:"/"
+                background_color: (235/255.0,125/255.0,103/255.0,1)
+                on_press: root.division()
+
+<RButton@Button>
+    background_color: (0,0,0,0)
+    backgroud_normal: ''
+    canvas.before:
+        Color:
+            rgba : (15/255.0,135/255.0,87/255.0,1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [15]
